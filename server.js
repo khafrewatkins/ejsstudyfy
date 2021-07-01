@@ -15,22 +15,22 @@ app.use(express.json()) // To parse the incoming requests with JSON payloads
 app.use(express.static(__dirname + '/views'));
 
 
-const path = require("path");
-const router = express.Router();
-app.use("/", router);
+// const path = require("path");
+// const router = express.Router();
+// app.use("/", router);
 
-router.get('/',function(req,res){
-    res.sendFile(path.join(__dirname+'/views/pages/index.html'));
+// router.get('/',function(req,res){
+//     res.sendFile(path.join(__dirname+'/views/pages/index.html'));
     //__dirname : It will resolve to your project folder.
-  });
+//   });
   
-  router.get('/flashcards',function(req,res){
-    res.sendFile(path.join(__dirname+'/views/pages/flashcard/flashcards.html'));
-  });
+//   router.get('/flashcards',function(req,res){
+//     res.sendFile(path.join(__dirname+'/views/pages/flashcard/flashcards.html'));
+//   });
   
-  router.get('/calendars',function(req,res){
-    res.sendFile(path.join(__dirname+'/views/pages/calendar/calendars.html'));
-  });
+//   router.get('/calendars',function(req,res){
+//     res.sendFile(path.join(__dirname+'/views/pages/calendar/calendars.html'));
+//   });
   
 
 
@@ -66,20 +66,20 @@ router.get('/',function(req,res){
 
 
 
-// const ejs = require('ejs');
+const ejs = require('ejs');
 
 // Set the view engine to ejs
-// app.set('view engine', 'ejs');
+app.set('view engine', 'ejs');
 
-// app.get('/', function (req, res) {
-//     res.render('pages/index');
-//     console.log('we running now! catch up!');
-// });
+app.get('/', function (req, res) {
+    res.render('pages/index');
+    console.log('we running now! catch up!');
+});
 
-// app.get('/flashcards', function(req, res)  {
-//     res.render('pages/flashcard/flashcards');
-// });
+app.get('/flashcards', function(req, res)  {
+    res.render('pages/flashcard/flashcards');
+});
 
-// app.get('/calendars', function(req, res)  {
-//     res.render('pages/calendar/calendars');
-// });
+app.get('/calendars', function(req, res)  {
+    res.render('pages/calendar/calendars');
+});
