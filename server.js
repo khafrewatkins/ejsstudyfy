@@ -15,6 +15,8 @@ app.use(express.json()) // To parse the incoming requests with JSON payloads
 app.use(express.static(__dirname + '/views'));
 
 
+
+
 // const path = require("path");
 // const router = express.Router();
 // app.use("/", router);
@@ -66,13 +68,15 @@ app.use(express.static(__dirname + '/views'));
 
 
 
+
+
 const ejs = require('ejs');
 
 // Set the view engine to ejs
 app.set('view engine', 'ejs');
 
 app.get('/', function (req, res) {
-    res.render('pages/index');
+    res.render('pages/about/about');
     console.log('we running now! catch up!');
 });
 
@@ -82,4 +86,9 @@ app.get('/flashcards', function(req, res)  {
 
 app.get('/calendars', function(req, res)  {
     res.render('pages/calendar/calendars');
+});
+
+
+app.get('/index', function(req, res)  {
+    res.render('pages/index');
 });
